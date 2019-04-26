@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createVariants() creates different variations for deep-equal inputs 1`] = `
+Array [
+  Array [
+    0,
+    0,
+  ],
+  Array [
+    0,
+    1,
+  ],
+  Array [
+    0,
+    2,
+  ],
+  Array [
+    1,
+    0,
+  ],
+  Array [
+    1,
+    1,
+  ],
+  Array [
+    1,
+    2,
+  ],
+  Array [
+    2,
+    0,
+  ],
+  Array [
+    2,
+    1,
+  ],
+  Array [
+    2,
+    2,
+  ],
+]
+`;
+
+exports[`createVariants() doesn't duplicate variations for strictly equal inputs 1`] = `
+Array [
+  Array [
+    0,
+    0,
+  ],
+  Array [
+    1,
+    1,
+  ],
+  Array [
+    2,
+    2,
+  ],
+]
+`;
+
+exports[`createVariants() handles conditional yields 1`] = `
+Array [
+  Object {
+    "color": "yellow",
+    "fruit": "banana",
+    "size": "small",
+  },
+  Object {
+    "color": "green",
+    "fruit": "banana",
+    "size": "small",
+  },
+  Object {
+    "color": "yellow",
+    "fruit": "banana",
+    "size": "normal",
+  },
+  Object {
+    "color": "green",
+    "fruit": "banana",
+    "size": "normal",
+  },
+  Object {
+    "color": "yellow",
+    "fruit": "banana",
+    "size": "large",
+  },
+  Object {
+    "color": "green",
+    "fruit": "banana",
+    "size": "large",
+  },
+  Object {
+    "color": "green",
+    "fruit": "apple",
+    "size": "small",
+  },
+  Object {
+    "color": "red",
+    "fruit": "apple",
+    "size": "small",
+  },
+  Object {
+    "color": "green",
+    "fruit": "apple",
+    "size": "normal",
+  },
+  Object {
+    "color": "red",
+    "fruit": "apple",
+    "size": "normal",
+  },
+  Object {
+    "color": "red",
+    "fruit": "strawberry",
+    "size": "normal",
+  },
+]
+`;
+
+exports[`createVariants() handles simple 2x2 input 1`] = `
+Array [
+  Object {
+    "bool": false,
+    "num": 0,
+  },
+  Object {
+    "bool": false,
+    "num": 1,
+  },
+  Object {
+    "bool": true,
+    "num": 0,
+  },
+  Object {
+    "bool": true,
+    "num": 1,
+  },
+]
+`;
+
+exports[`createVariants() handles simple 3x2 input 1`] = `
+Array [
+  Array [
+    0,
+    2,
+    4,
+  ],
+  Array [
+    0,
+    2,
+    5,
+  ],
+  Array [
+    0,
+    3,
+    4,
+  ],
+  Array [
+    0,
+    3,
+    5,
+  ],
+  Array [
+    1,
+    2,
+    4,
+  ],
+  Array [
+    1,
+    2,
+    5,
+  ],
+  Array [
+    1,
+    3,
+    4,
+  ],
+  Array [
+    1,
+    3,
+    5,
+  ],
+]
+`;
+
+exports[`createVariants() throws on a yield with a non-array 1`] = `"yielded values in createVariants() should be Arrays of options. Got object"`;
+
+exports[`createVariants() throws on yields with different lengths 1`] = `
+"The generator passed to createVariants() seems to yield non-deterministic input Arrays.
+The generator should yield the same inputs on each call. Yield #0 was inconsistent:
+inputs previously had length 4, now yields 3"
+`;
+
+exports[`createVariants() throws on yields with different types 1`] = `
+"The generator passed to createVariants() seems to yield non-deterministic input Arrays.
+The generator should yield the same inputs on each call. Yield #0 was inconsistent:
+input option 2 was of type string, is now number"
+`;
+
+exports[`createVariants() works with a generator without yields 1`] = `
+Array [
+  Array [
+    1,
+    2,
+    3,
+  ],
+]
+`;

@@ -3,10 +3,10 @@ type InputValueArray = Array<InputValue>;
 
 const NO_RETURN_VALUE = Symbol('NO_RETURN_VALUE');
 
-const NON_DETERMINISTIC_INPUT_ERROR = (msg: string, index: number) => `
-The generator passed to createVariants() seems to yield non-deterministic input Arrays.
+const NON_DETERMINISTIC_INPUT_ERROR = (msg: string, index: number) =>
+  `The generator passed to createVariants() seems to yield non-deterministic input Arrays.
 The generator should yield the same inputs on each call. Yield #${index} was inconsistent:
-${msg}`.substring(1);
+${msg}`;
 
 function verifyInputEqual(previous: Array<any>, current: Array<any>, index: number): void {
   if (previous.length !== current.length) {
@@ -89,6 +89,12 @@ function* createVariants<T>(
   }
 
   yield iteratorValue as T;
+}
+
+export function iterateCombinations<T>(
+  combinationGenerator: (isFirst: boolean) => IterableIterator<any>,
+): void {
+  Array.from(createVariants<T>(combinationGenerator));
 }
 
 export default createVariants;

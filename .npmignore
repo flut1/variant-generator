@@ -1,4 +1,4 @@
-## copy to .npmignore
+## copy from .gitignore
 .DS_Store
 .idea
 npm-debug.log*
@@ -11,7 +11,10 @@ node_modules/
 /tmp/
 /decl/
 
-## only ignore in git
-/lib
-/index.js
-/index.d.ts
+# .npmignore
+/src
+__tests__
+.editorconfig
+.prettierrc
+tsconfig.json
+tslint.json
