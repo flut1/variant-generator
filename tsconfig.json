@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "baseUrl": "./src/",
+    "rootDir": "./src/",
+    "forceConsistentCasingInFileNames": true,
+    "module": "es2015",
+    "target": "es2016",
+    "moduleResolution": "node",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "variant-generator",
+  "version": "0.0.1",
+  "description": "Small utility that generates multiple variants for each combination of parameters",
+  "main": "index.js",
+  "repository": "git@github.com:flut1/variant-generator.git",
+  "author": "Floris Bernard",
+  "devDependencies": {
+    "typescript": "^3.4.5"
+  }
+}
