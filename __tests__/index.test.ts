@@ -1,4 +1,4 @@
-import createVariants from '../src/index';
+import createVariants, { iterateCombinations } from '../src/index';
 
 describe('createVariants()', () => {
     test('handles simple 2x2 input', () => {
@@ -126,4 +126,22 @@ describe('createVariants()', () => {
 
         expect(Array.from(result)).toMatchSnapshot();
     });
+});
+
+describe('iterateCombinations', () => {
+  test('it runs once for each combination of parameters', () => {
+    const spy = jest.fn();
+
+    iterateCombinations(function*() {
+      yield [1, 2, 3];
+
+      yield [4, 5, 6];
+
+      yield [7, 8];
+
+      spy();
+    });
+
+    expect(spy).toBeCalledTimes(3 * 3 * 2);
+  })
 });
