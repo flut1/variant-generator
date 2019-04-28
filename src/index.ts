@@ -91,10 +91,10 @@ function* createVariants<T>(
   yield iteratorValue as T;
 }
 
-export function iterateCombinations<T>(
+createVariants.iterateCombinations = function iterateCombinations<T>(
   combinationGenerator: (isFirst: boolean) => IterableIterator<any>,
 ): void {
   Array.from(createVariants<T>(combinationGenerator));
-}
+};
 
-export default createVariants;
+export = createVariants;
