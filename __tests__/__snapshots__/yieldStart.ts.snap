@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createVariants() it handles yields in helper functions with yield star 1`] = `
+Array [
+  Object {
+    "firstProp": Object {
+      "foo": 1,
+      "foobar": "A",
+    },
+    "secondProp": Object {
+      "foo": 3,
+      "foobar": "C",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 1,
+      "foobar": "A",
+    },
+    "secondProp": Object {
+      "foo": 3,
+      "foobar": "D",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 1,
+      "foobar": "A",
+    },
+    "secondProp": Object {
+      "foo": 4,
+      "foobar": "C",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 1,
+      "foobar": "A",
+    },
+    "secondProp": Object {
+      "foo": 4,
+      "foobar": "D",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 1,
+      "foobar": "B",
+    },
+    "secondProp": Object {
+      "foo": 3,
+      "foobar": "C",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 1,
+      "foobar": "B",
+    },
+    "secondProp": Object {
+      "foo": 3,
+      "foobar": "D",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 1,
+      "foobar": "B",
+    },
+    "secondProp": Object {
+      "foo": 4,
+      "foobar": "C",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 1,
+      "foobar": "B",
+    },
+    "secondProp": Object {
+      "foo": 4,
+      "foobar": "D",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 2,
+      "foobar": "A",
+    },
+    "secondProp": Object {
+      "foo": 3,
+      "foobar": "C",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 2,
+      "foobar": "A",
+    },
+    "secondProp": Object {
+      "foo": 3,
+      "foobar": "D",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 2,
+      "foobar": "A",
+    },
+    "secondProp": Object {
+      "foo": 4,
+      "foobar": "C",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 2,
+      "foobar": "A",
+    },
+    "secondProp": Object {
+      "foo": 4,
+      "foobar": "D",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 2,
+      "foobar": "B",
+    },
+    "secondProp": Object {
+      "foo": 3,
+      "foobar": "C",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 2,
+      "foobar": "B",
+    },
+    "secondProp": Object {
+      "foo": 3,
+      "foobar": "D",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 2,
+      "foobar": "B",
+    },
+    "secondProp": Object {
+      "foo": 4,
+      "foobar": "C",
+    },
+  },
+  Object {
+    "firstProp": Object {
+      "foo": 2,
+      "foobar": "B",
+    },
+    "secondProp": Object {
+      "foo": 4,
+      "foobar": "D",
+    },
+  },
+]
+`;
