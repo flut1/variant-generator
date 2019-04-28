@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createVariants() throws on a yield with a non-array 1`] = `"yielded values in createVariants() should be Arrays of options. Got object"`;
+
+exports[`createVariants() throws on yields with different lengths 1`] = `
+"The generator passed to createVariants() seems to yield non-deterministic input Arrays.
+The generator should yield the same inputs on each call. Yield #0 was inconsistent:
+inputs previously had length 4, now yields 3"
+`;
+
+exports[`createVariants() throws on yields with different types 1`] = `
+"The generator passed to createVariants() seems to yield non-deterministic input Arrays.
+The generator should yield the same inputs on each call. Yield #0 was inconsistent:
+input option 2 was of type string, is now number"
+`;

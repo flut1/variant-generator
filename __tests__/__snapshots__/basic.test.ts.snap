@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createVariants() creates different variations for deep-equal inputs 1`] = `
+Array [
+  Array [
+    0,
+    0,
+  ],
+  Array [
+    0,
+    1,
+  ],
+  Array [
+    0,
+    2,
+  ],
+  Array [
+    1,
+    0,
+  ],
+  Array [
+    1,
+    1,
+  ],
+  Array [
+    1,
+    2,
+  ],
+  Array [
+    2,
+    0,
+  ],
+  Array [
+    2,
+    1,
+  ],
+  Array [
+    2,
+    2,
+  ],
+]
+`;
+
+exports[`createVariants() doesn't duplicate variations for strictly equal inputs 1`] = `
+Array [
+  Array [
+    0,
+    0,
+  ],
+  Array [
+    1,
+    1,
+  ],
+  Array [
+    2,
+    2,
+  ],
+]
+`;
+
+exports[`createVariants() handles simple 2x2 input 1`] = `
+Array [
+  Object {
+    "bool": false,
+    "num": 0,
+  },
+  Object {
+    "bool": false,
+    "num": 1,
+  },
+  Object {
+    "bool": true,
+    "num": 0,
+  },
+  Object {
+    "bool": true,
+    "num": 1,
+  },
+]
+`;
+
+exports[`createVariants() handles simple 3x2 input 1`] = `
+Array [
+  Array [
+    0,
+    2,
+    4,
+  ],
+  Array [
+    0,
+    2,
+    5,
+  ],
+  Array [
+    0,
+    3,
+    4,
+  ],
+  Array [
+    0,
+    3,
+    5,
+  ],
+  Array [
+    1,
+    2,
+    4,
+  ],
+  Array [
+    1,
+    2,
+    5,
+  ],
+  Array [
+    1,
+    3,
+    4,
+  ],
+  Array [
+    1,
+    3,
+    5,
+  ],
+]
+`;
+
+exports[`createVariants() works with a generator without yields 1`] = `
+Array [
+  Array [
+    1,
+    2,
+    3,
+  ],
+]
+`;

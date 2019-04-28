@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createVariants() handles conditional yields 1`] = `
+Array [
+  Object {
+    "color": "yellow",
+    "fruit": "banana",
+    "size": "small",
+  },
+  Object {
+    "color": "green",
+    "fruit": "banana",
+    "size": "small",
+  },
+  Object {
+    "color": "yellow",
+    "fruit": "banana",
+    "size": "normal",
+  },
+  Object {
+    "color": "green",
+    "fruit": "banana",
+    "size": "normal",
+  },
+  Object {
+    "color": "yellow",
+    "fruit": "banana",
+    "size": "large",
+  },
+  Object {
+    "color": "green",
+    "fruit": "banana",
+    "size": "large",
+  },
+  Object {
+    "color": "green",
+    "fruit": "apple",
+    "size": "small",
+  },
+  Object {
+    "color": "red",
+    "fruit": "apple",
+    "size": "small",
+  },
+  Object {
+    "color": "green",
+    "fruit": "apple",
+    "size": "normal",
+  },
+  Object {
+    "color": "red",
+    "fruit": "apple",
+    "size": "normal",
+  },
+  Object {
+    "color": "red",
+    "fruit": "strawberry",
+    "size": "normal",
+  },
+]
+`;
