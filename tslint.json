@@ -12,6 +12,13 @@
       "allow-pascal-case",
       "allow-leading-underscore"
     ],
+    "prefer-array-literal": [
+      true,
+      {
+        "allow-type-parameters": true
+      }
+    ],
+    "import-name": false,
     "no-increment-decrement": false,
     "strict-boolean-expressions": false
   }

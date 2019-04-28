@@ -3,11 +3,14 @@
     "allowJs": false,
     "baseUrl": "./src/",
     "rootDir": "./src/",
+    "outDir": "./tmp",
     "forceConsistentCasingInFileNames": true,
-    "module": "es2015",
+    "module": "commonjs",
     "target": "es2016",
     "moduleResolution": "node",
     "strict": true,
+    "declaration": true,
+    "removeComments": true,
     "skipLibCheck": true
   },
   "include": [

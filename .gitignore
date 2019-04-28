@@ -12,6 +12,5 @@ node_modules/
 /decl/
 
 ## only ignore in git
-/lib
 /index.js
 /index.d.ts

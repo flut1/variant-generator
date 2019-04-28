@@ -18,3 +18,4 @@ __tests__
 .prettierrc
 tsconfig.json
 tslint.json
+jest.config.js
