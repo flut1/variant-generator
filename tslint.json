@@ -21,5 +21,8 @@
     "import-name": false,
     "no-increment-decrement": false,
     "strict-boolean-expressions": false
+  },
+  "linterOptions": {
+    "exclude": ["./index.d.ts", "tmp/*"]
   }
 }

@@ -5,17 +5,14 @@
     "rootDir": "./src/",
     "outDir": "./tmp",
     "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "module": "commonjs",
-    "target": "es2016",
+    "target": "esnext",
     "moduleResolution": "node",
     "strict": true,
     "declaration": true,
-    "removeComments": true,
-    "skipLibCheck": true
+    "removeComments": true
   },
-  "include": [
-    "./src/**/*"
+  "files": [
+    "./src/index.ts"
   ]
 }
