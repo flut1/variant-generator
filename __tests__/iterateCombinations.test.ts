@@ -15,5 +15,5 @@ describe('iterateCombinations', () => {
     });
 
     expect(spy).toBeCalledTimes(3 * 3 * 2);
-  })
+  });
 });
