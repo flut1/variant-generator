@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    tags:
+      v*
+
+jobs:
+  build:
+
+    deploy: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: install dependencies
+      run: npm install
+    - name: build and test
+      run: |
+        npm run build --if-present
+        npm test
+    - name: GitHub Action for npm
+      uses: actions/npm@1.0.0
+      args: publish --access public
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
