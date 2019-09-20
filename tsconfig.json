@@ -5,6 +5,8 @@
     "rootDir": "./src/",
     "outDir": "./tmp",
     "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "module": "commonjs",
     "target": "esnext",
     "moduleResolution": "node",

@@ -1,6 +1,6 @@
 {
   "name": "variant-generator",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Small utility that generates multiple variants for each combination of parameters",
   "keywords": [
     "combinations",
