@@ -30,17 +30,15 @@ function verifyInputEqual(previous: Array<any>, current: Array<any>, index: numb
   }
 }
 
-function* createVariants<TOutput, TInputTypes extends Array<any>>(
-  variantGenerator: (
-    isFirst: boolean,
-  ) => Generator<Array<TInputTypes[number]>, TOutput, TInputTypes[number]>,
-  parentInputValues: TParentInputValues<TInputTypes> = [] as TParentInputValues<TInputTypes>,
+function* createVariants<TOutput>(
+  variantGenerator: (isFirst: boolean) => Generator<Array<any>, TOutput, any>,
+  parentInputValues: TParentInputValues<any> = [] as TParentInputValues<any>,
 ): Generator<TOutput, void, never> {
   const inputsIterator = variantGenerator(!parentInputValues.length);
 
   let i = 0;
   let { done, value: inputVariations } = inputsIterator.next();
-  const inputValues = [...parentInputValues] as TParentInputValues<TInputTypes>;
+  const inputValues = [...parentInputValues] as TParentInputValues<any>;
 
   while (!done) {
     if (!Array.isArray(inputVariations)) {
@@ -74,7 +72,7 @@ function* createVariants<TOutput, TInputTypes extends Array<any>>(
         for (const childValue of inputVariations.slice(0, -1)) {
           const childInputValues = [...inputValues];
           childInputValues.push([inputVariations, childValue]);
-          yield* createVariants<TOutput, TInputTypes>(variantGenerator, childInputValues);
+          yield* createVariants<TOutput>(variantGenerator, childInputValues);
         }
         // move to next iteration with last variation of input
         inputValues.push([inputVariations, inputVariations[inputVariations.length - 1]]);
@@ -91,15 +89,10 @@ function* createVariants<TOutput, TInputTypes extends Array<any>>(
   yield inputVariations as TOutput;
 }
 
-createVariants.iterateCombinations = function iterateCombinations<
-  TOutput,
-  TInputTypes extends Array<any>
->(
-  combinationGenerator: (
-    isFirst: boolean,
-  ) => Generator<Array<TInputTypes[number]>, TOutput, TInputTypes[number]>,
+createVariants.iterateCombinations = function iterateCombinations<TOutput>(
+  combinationGenerator: (isFirst: boolean) => Generator<Array<any>, TOutput, any>,
 ): void {
-  Array.from(createVariants<TOutput, TInputTypes>(combinationGenerator));
+  Array.from(createVariants<TOutput>(combinationGenerator));
 };
 
 export = createVariants;
