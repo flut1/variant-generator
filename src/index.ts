@@ -1,5 +1,5 @@
 type InputValue<T = any> = [Array<T>, T];
-type InputValueArray = Array<InputValue>;
+type TParentInputValues<TInputTypes extends Array<any>> = Array<InputValue<TInputTypes[number]>>;
 
 const NO_RETURN_VALUE = Symbol('NO_RETURN_VALUE');
 
@@ -30,34 +30,34 @@ function verifyInputEqual(previous: Array<any>, current: Array<any>, index: numb
   }
 }
 
-function* createVariants<T>(
-  variantGenerator: (isFirst: boolean) => IterableIterator<any>,
-  parentInputValues: InputValueArray = [],
-): IterableIterator<T> {
+function* createVariants<TOutput, TInputTypes extends Array<any>>(
+  variantGenerator: (
+    isFirst: boolean,
+  ) => Generator<Array<TInputTypes[number]>, TOutput, TInputTypes[number]>,
+  parentInputValues: TParentInputValues<TInputTypes> = [] as TParentInputValues<TInputTypes>,
+): Generator<TOutput, void, never> {
   const inputsIterator = variantGenerator(!parentInputValues.length);
 
   let i = 0;
-  let { done, value: iteratorValue } = inputsIterator.next();
-  const inputValues = [...parentInputValues];
+  let { done, value: inputVariations } = inputsIterator.next();
+  const inputValues = [...parentInputValues] as TParentInputValues<TInputTypes>;
 
   while (!done) {
-    if (!Array.isArray(iteratorValue)) {
+    if (!Array.isArray(inputVariations)) {
       throw new Error(
-        `yielded values in createVariants() should be Arrays of options. Got ${typeof iteratorValue}`,
+        `yielded values in createVariants() should be Arrays of options. Got ${typeof inputVariations}`,
       );
     }
 
     let returnValueToGenerator: unknown = NO_RETURN_VALUE;
+    const currentParentInputValue = parentInputValues[i];
 
-    if (parentInputValues[i] !== undefined) {
+    if (currentParentInputValue !== undefined) {
       // input value already set by parent
-      verifyInputEqual(parentInputValues[i][0], iteratorValue, i);
+      verifyInputEqual(currentParentInputValue[0], inputVariations, i);
 
-      returnValueToGenerator = parentInputValues[i][1];
+      returnValueToGenerator = currentParentInputValue[1];
     } else {
-      // input value not yet set by parent
-      const inputVariations = iteratorValue as Array<T>;
-
       // check if yielded input variations array have been yielded before
       const existingInputValue = inputValues.find(
         ([parentInputVariations]) => parentInputVariations === inputVariations,
@@ -74,7 +74,7 @@ function* createVariants<T>(
         for (const childValue of inputVariations.slice(0, -1)) {
           const childInputValues = [...inputValues];
           childInputValues.push([inputVariations, childValue]);
-          yield* createVariants<T>(variantGenerator, childInputValues);
+          yield* createVariants<TOutput, TInputTypes>(variantGenerator, childInputValues);
         }
         // move to next iteration with last variation of input
         inputValues.push([inputVariations, inputVariations[inputVariations.length - 1]]);
@@ -85,16 +85,21 @@ function* createVariants<T>(
     if (returnValueToGenerator === NO_RETURN_VALUE) {
       throw new Error('Expected returnValueToGenerator to be set');
     }
-    ({ done, value: iteratorValue } = inputsIterator.next(returnValueToGenerator));
+    ({ done, value: inputVariations } = inputsIterator.next(returnValueToGenerator));
   }
 
-  yield iteratorValue as T;
+  yield inputVariations as TOutput;
 }
 
-createVariants.iterateCombinations = function iterateCombinations<T>(
-  combinationGenerator: (isFirst: boolean) => IterableIterator<any>,
+createVariants.iterateCombinations = function iterateCombinations<
+  TOutput,
+  TInputTypes extends Array<any>
+>(
+  combinationGenerator: (
+    isFirst: boolean,
+  ) => Generator<Array<TInputTypes[number]>, TOutput, TInputTypes[number]>,
 ): void {
-  Array.from(createVariants<T>(combinationGenerator));
+  Array.from(createVariants<TOutput, TInputTypes>(combinationGenerator));
 };
 
 export = createVariants;

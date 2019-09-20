@@ -48,9 +48,10 @@ describe('createVariants()', () => {
   test('throws on a yield with a non-array', () => {
     expect(() => {
       const test = Array.from(
-        createVariants(function*() {
+        // cast to any is necessary here because non-arrays are not allowed
+        createVariants((function*() {
           return yield { 0: 'foo', 1: 'bar' };
-        }),
+        }) as any),
       );
     }).toThrowErrorMatchingSnapshot();
   });
