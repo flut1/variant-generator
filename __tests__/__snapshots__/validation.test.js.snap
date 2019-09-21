@@ -13,3 +13,7 @@ exports[`createVariants() throws on yields with different types 1`] = `
 The generator should yield the same inputs on each call. Yield #0 was inconsistent:
 input option 2 was of type string, is now number"
 `;
+
+exports[`createVariants() throws when passing a non-function 1`] = `"Unexpected argument passed to createVariants(). Expected a generator function, got object"`;
+
+exports[`createVariants() throws when passing a non-generator function 1`] = `"The function passed to createVariants() does not seem to be a generator function. Please use function*"`;

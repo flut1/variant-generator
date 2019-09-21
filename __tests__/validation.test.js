@@ -55,4 +55,18 @@ describe('createVariants()', () => {
       );
     }).toThrowErrorMatchingSnapshot();
   });
+  test('throws when passing a non-function', () => {
+    expect(() => {
+      const resultIterator = createVariants([1, 2, 3]);
+      resultIterator.next();
+    }).toThrowErrorMatchingSnapshot();
+  });
+  test('throws when passing a non-generator function', () => {
+    expect(() => {
+      const resultIterator = createVariants(function() {
+        return { foo: [0, 1, 2, 3] };
+      });
+      resultIterator.next();
+    }).toThrowErrorMatchingSnapshot();
+  });
 });

@@ -34,7 +34,17 @@ function* createVariants<TOutput>(
   variantGenerator: (isFirst: boolean) => Generator<Array<any>, TOutput, any>,
   parentInputValues: TParentInputValues<any> = [] as TParentInputValues<any>,
 ): Generator<TOutput, void, never> {
+  if (typeof variantGenerator !== 'function') {
+    throw new TypeError(
+      `Unexpected argument passed to createVariants(). Expected a generator function, got ${typeof variantGenerator}`,
+    );
+  }
+
   const inputsIterator = variantGenerator(!parentInputValues.length);
+
+  if (!inputsIterator || typeof inputsIterator.next !== 'function') {
+    throw new Error('The function passed to createVariants() does not seem to be a generator function. Please use function*');
+  }
 
   let i = 0;
   let { done, value: inputVariations } = inputsIterator.next();
