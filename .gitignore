@@ -11,3 +11,4 @@ node_modules/
 /decl/
 /index.js
 /index.d.ts
+/test.js
