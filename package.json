@@ -25,6 +25,12 @@
     "prepublishOnly": "npm run build",
     "test": "jest"
   },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "AUTHORS.md"
+  ],
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",

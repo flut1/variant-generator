@@ -1,4 +1,3 @@
-## copy to .npmignore
 .DS_Store
 .idea
 npm-debug.log*
@@ -10,7 +9,5 @@ node_modules/
 /.nyc_output/
 /tmp/
 /decl/
-
-## only ignore in git
 /index.js
 /index.d.ts
