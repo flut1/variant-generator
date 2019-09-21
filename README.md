@@ -2,7 +2,15 @@
 Small utility that generates multiple variation for each combination of input parameters
 
 ## Installation
-`npm install --save variant-generator` or `yarn add variant-generator`
+
+This package is published to the **Github Package Registry**. 
+Add to `.npmrc` in your project:
+
+```
+@flut1:registry=https://npm.pkg.github.com
+```
+
+Then call `npm install --save @flut1/variant-generator` or `yarn add @flut1/variant-generator`
 
 ## Explanation
 This utility considers a different approach to generating all possibilities of a given input value.

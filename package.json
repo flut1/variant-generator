@@ -1,6 +1,6 @@
 {
-  "name": "variant-generator",
-  "version": "1.0.0-alpha.5",
+  "name": "@flut1/variant-generator",
+  "version": "1.0.0",
   "description": "Small utility that generates multiple variants for each combination of parameters",
   "keywords": [
     "combinations",
@@ -15,6 +15,12 @@
   },
   "repository": "git@github.com:flut1/variant-generator.git",
   "author": "Floris Bernard <floris.bernard@gmail.com> (flut1)",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "AUTHORS.md"
+  ],
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -25,12 +31,6 @@
     "prepublishOnly": "npm run build",
     "test": "jest"
   },
-  "files": [
-    "index.js",
-    "index.d.ts",
-    "README.md",
-    "AUTHORS.md"
-  ],
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
