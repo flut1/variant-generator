@@ -186,7 +186,7 @@ function* getBabelLoaderOptions() {
 ## Typescript usage
 This module is written in TypeScript 3.6. TypeScript will infer some of the return types from the passed generator function:
 
-```
+```typescript
 const variants = Array.from(
   createVariants(function*() {
     return {
@@ -201,7 +201,7 @@ const variants = Array.from(
 ```
 Unfortunately, I cannot infer the typings from `yield` statements. So those parts of the returned value become type `any`. If you rather have strict typings, you have to explicitly annotate them:
 
-```
+```typescript
 const variants = Array.from(
   createVariants<{ foo: number, bar: boolean }>(function*() {
     return {
