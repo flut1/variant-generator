@@ -1,6 +1,17 @@
-# Under development
+# Variant Generator
+Small utility that generates multiple variation for each combination of input parameters
 
-## variant-generator
-Small utility that generates multiple variants for each combination of parameters
+## Installation
+`npm install --save variant-generator` or `yarn add variant-generator`
+
+## Usage
+This module exports a single utility `createVariants`
+```js
+const createVariants = require('variant-generator');
+```
+
+### Typescript
+
+
 
 

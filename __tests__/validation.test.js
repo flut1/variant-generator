@@ -1,4 +1,4 @@
-import createVariants from '../src';
+import createVariants, { iterateCombinations } from '../index';
 
 describe('createVariants()', () => {
   test('throws on yields with different lengths', () => {
@@ -49,9 +49,9 @@ describe('createVariants()', () => {
     expect(() => {
       const test = Array.from(
         // cast to any is necessary here because non-arrays are not allowed
-        createVariants((function*() {
+        createVariants(function*() {
           return yield { 0: 'foo', 1: 'bar' };
-        }) as any),
+        }),
       );
     }).toThrowErrorMatchingSnapshot();
   });
