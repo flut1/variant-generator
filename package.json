@@ -26,7 +26,10 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
     "@types/jest": "^24.0.18",
+    "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "shx": "^0.3.2",
